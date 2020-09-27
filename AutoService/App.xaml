@@ -1,0 +1,19 @@
+﻿<Application x:Class="AutoServiceProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AutoServiceProject"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="FontSize" Value="12pt"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Tw Cen Mt"/>
+            <Setter Property="FontSize" Value="12pt"/>
+            <Setter Property="Background" Value="#FFFF9C1A"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+    </Application.Resources>
+</Application>
