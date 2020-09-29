@@ -8,56 +8,102 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Услуги">
 
-    <Grid Background="White">
-        <Grid Margin="0,10,0,10">
+    <DockPanel Background="White">
+        
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Left"
+                    HorizontalAlignment="Left"
+                    >
+            <Button Content="Назад"
+                    Margin="0,15,0,0"
+                    Width="90"
+                    Name="BtnBack"
+                    Click="BtnBack_Click"
+                    FontFamily="Tw Cen Mt"
+                    IsEnabled="False"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Center">
+            <Button Content="Вперед"
+                    Name="BtnNext"
+                    
+                    Click="BtnNext_Click"
+                    Margin="0,15,0,0"
+                    Width="90"
+                    FontFamily="Tw Cen Mt"/>
+        </StackPanel>
+        
+        <Grid Margin="0,10,0,10" DockPanel.Dock="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="47*"/>
                 <RowDefinition Height="47*"/>
                 <RowDefinition Height="47*"/>
                 <RowDefinition Height="47*"/>
             </Grid.RowDefinitions>
+            
+            
+            
             <!--Разметка информационного блока №1-->
             <StackPanel Orientation="Horizontal"
                         Name="StckpOne"
                         HorizontalAlignment="Center"
-                        Margin="10">
+                        Margin="3"
+                        >
                 <Border BorderBrush="Gray"
                         BorderThickness="2">
                     <StackPanel Orientation="Horizontal"
-                        Background="#FFFFFFE1">
+                                Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Left">
+                                    HorizontalAlignment="Left">
                             <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Center" 
+                                    MinWidth="525">
                             <TextBlock Text="Наименование услуги"
-                               Name="TxtNameService1"                               
-                               FontSize="14pt"
-                               VerticalAlignment="Top"
-                               Margin="15,5,0,0"/>
+                                       x:Name="TxtNameService1"                               
+                                       FontSize="14pt"
+                                       VerticalAlignment="Top"
+                                       Margin="15,5,0,0"/>
                             <StackPanel Orientation="Horizontal"
-                               Margin="15,5,0,0"
-                               Width="350" >
-                                <TextBlock 
-                            Name="TxtStartPriceBlock1"
-                            Text=""
-                            TextDecorations="Strikethrough"/>
+                                        VerticalAlignment="Top"
+                                        Margin="15,5,0,0"
+                                        Width="350"
+                                        HorizontalAlignment="Left">
+                                <TextBlock x:Name="TxtStartPriceBlock1"
+                                           Text=""
+                                           TextDecorations="Strikethrough"
+                                           Margin="0,0,5,0"/>
                                 <TextBlock Text="Цена"
-                                           Name="TxtPriceService1"/>
+                                           x:Name="TxtPriceService1"/>
                                 <TextBlock Text="руб."
                                    Margin="5,0,0,0"/>
                                 <TextBlock Text="за"
                                    Margin="5,0,0,0"/>
                                 <TextBlock Text="Продолжительность"
-                                           Name="TxtDurationService1"
+                                           x:Name="TxtDurationService1"
                                             Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Margin="15,5,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal"
+                                        Visibility="Hidden"
+                                        Name="StckpDiscount1">
+                                <TextBlock Text="* cкидка" Margin="0,0,5,0"/>
+                                <TextBlock Text="n"
+                                           Name="TxtDiscount1"
+                                           Margin="0,0,5,0"/>
+                                <TextBlock Text="%"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" 
                                         VerticalAlignment="Bottom" 
                                         Margin="15,7,15,0">
                                 <Button Content="Подробнее" 
-                                        Name="btnMoreInf"
-                                        Click="BtnMoreInf_Click"
+                                        x:Name="btnMoreInf"
+                                        Click="BtnMoreInf_Click"                                        
                                         VerticalAlignment="Bottom"/>
                             </StackPanel>
                         </StackPanel>
@@ -67,36 +113,52 @@
             <!--Разметка информационного блока №2-->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
-                        Margin="10"
+                        Margin="3"
                         Grid.Row="1">
                 <Border BorderBrush="Gray"
                         BorderThickness="2">
                     <StackPanel Orientation="Horizontal"
-                        Background="#FFFFFFE1">
+                                Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Left">
                             <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical"
+                                    MinWidth="525">
                             <TextBlock Text="Наименование услуги"
-                               Name="TxtNameService2"
-                               FontSize="14pt"
-                               VerticalAlignment="Top"
-                               Margin="15,5,0,0"/>
+                                       Name="TxtNameService2"
+                                       FontSize="14pt"
+                                       VerticalAlignment="Top"
+                                       Margin="15,5,0,0"/>
                             <StackPanel Orientation="Horizontal"
-                               Margin="15,5,0,0"
-                               Width="350" >
-                                <TextBlock 
-                            Name="TxtStartPriceBlock2"
-                            Text=""
-                            TextDecorations="Strikethrough"/>
-                                <TextBlock Text="Цена"/>
+                                        Margin="15,5,0,0"
+                                        Width="350"
+                                        HorizontalAlignment="Left">
+                                <TextBlock Name="TxtStartPriceBlock2"
+                                           Text=""
+                                           Margin="0,0,5,0"
+                                           TextDecorations="Strikethrough"/>   
+                                <TextBlock Text="Цена"
+                                           x:Name="TxtPriceService2"/>
                                 <TextBlock Text="руб."
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="за"
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="Продолжительность"
-                                   Margin="5,0,0,0"/>
+                                           x:Name="TxtDurationService2"
+                                           Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Margin="15,5,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal"
+                                        Visibility="Hidden"
+                                        Name="StckpDiscount2">
+                                <TextBlock Text="* cкидка" Margin="0,0,5,0"/>
+                                <TextBlock Text="n"
+                                           Name="TxtDiscount2"
+                                           Margin="0,0,5,0"/>
+                                <TextBlock Text="%"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" 
                                         VerticalAlignment="Bottom" 
@@ -112,36 +174,52 @@
             <!--Разметка информационного блока №3-->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
-                        Margin="10"
+                        Margin="3"
                         Grid.Row="2">
                 <Border BorderBrush="Gray"
                         BorderThickness="2">
                     <StackPanel Orientation="Horizontal"
-                        Background="#FFFFFFE1">
+                                Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Left">
+                                    HorizontalAlignment="Left">
                             <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical"
+                                    MinWidth="525">
                             <TextBlock Text="Наименование услуги"
                                Name="TxtNameService3"
                                FontSize="14pt"
                                VerticalAlignment="Top"
                                Margin="15,5,0,0"/>
                             <StackPanel Orientation="Horizontal"
-                               Margin="15,5,0,0"
-                               Width="350" >
-                                <TextBlock 
-                            Name="TxtStartPriceBlock3"
-                            Text=""
-                            TextDecorations="Strikethrough"/>
-                                <TextBlock Text="Цена"/>
+                                        Margin="15,5,0,0"
+                                        Width="350"
+                                        HorizontalAlignment="Left">
+                                <TextBlock Name="TxtStartPriceBlock3"
+                                           Text=""
+                                           Margin="0,0,5,0"
+                                           TextDecorations="Strikethrough"/>
+                                <TextBlock Text="Цена"
+                                           x:Name="TxtPriceService3"/>
                                 <TextBlock Text="руб."
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="за"
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="Продолжительность"
-                                   Margin="5,0,0,0"/>
+                                           x:Name="TxtDurationService3"
+                                           Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Margin="15,5,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal"
+                                        Visibility="Hidden"
+                                        Name="StckpDiscount3">
+                                <TextBlock Text="* cкидка" Margin="0,0,5,0"/>
+                                <TextBlock Text="n"
+                                           Name="TxtDiscount3"
+                                           Margin="0,0,5,0"/>
+                                <TextBlock Text="%"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" 
                                         VerticalAlignment="Bottom" 
@@ -157,36 +235,53 @@
             <!--Разметка информационного блока №4-->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
-                        Margin="10"
+                        Margin="3"
                         Grid.Row="3">
                 <Border BorderBrush="Gray"
                         BorderThickness="2">
                     <StackPanel Orientation="Horizontal"
-                        Background="#FFFFFFE1">
+                                Background="#FFFFFFE1"
+                                MinWidth="655">
                         <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Left">
+                                    HorizontalAlignment="Left">
                             <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical"
+                                    MinWidth="525">
                             <TextBlock Text="Наименование услуги"
                                Name="TxtNameService4"
                                FontSize="14pt"
                                VerticalAlignment="Top"
                                Margin="15,5,0,0"/>
                             <StackPanel Orientation="Horizontal"
-                               Margin="15,5,0,0"
-                               Width="350" >
-                                <TextBlock 
-                            Name="TxtStartPriceBlock4"
-                            Text=""
-                            TextDecorations="Strikethrough"/>
-                                <TextBlock Text="Цена"/>
+                                        Margin="15,5,0,0"
+                                        Width="350"
+                                        HorizontalAlignment="Left">
+                                <TextBlock Name="TxtStartPriceBlock4"
+                                           Text=""
+                                           Margin="0,0,5,0"
+                                           TextDecorations="Strikethrough"/>
+                                <TextBlock Text="Цена"
+                                           x:Name="TxtPriceService4"/>
                                 <TextBlock Text="руб."
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="за"
-                                   Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"/>
                                 <TextBlock Text="Продолжительность"
-                                   Margin="5,0,0,0"/>
+                                           x:Name="TxtDurationService4"
+                                           Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Margin="15,5,15,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal"
+                                        Visibility="Hidden"
+                                        Name="StckpDiscount4">
+                                <TextBlock Text="* cкидка" Margin="0,0,5,0"/>
+                                <TextBlock Text="n"
+                                           Name="TxtDiscount4"
+                                           Margin="0,0,5,0"/>
+                                <TextBlock Text="%"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" 
                                         VerticalAlignment="Bottom" 
@@ -200,5 +295,6 @@
                 </Border>
             </StackPanel>
         </Grid>
-    </Grid>
+        
+    </DockPanel>
 </Page>

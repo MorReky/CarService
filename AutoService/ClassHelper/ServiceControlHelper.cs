@@ -21,7 +21,7 @@ namespace AutoService.DataFilesApp
 
         public static int Price { get; set; }
 
-        public static Nullable<double> Discount { get; set; }
+        public static float Discount { get; set; }
 
         public static string MainPage { get; set; }
     }

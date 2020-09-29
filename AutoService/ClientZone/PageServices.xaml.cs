@@ -24,40 +24,149 @@ namespace AutoServiceProject.ClientZone
     public partial class PageServices : Page
     {
         int countService = 0;//счётчик для отображения
-
-
+        List<int> ServiceId = new List<int>();//Массив с id сервисов
         public PageServices()
         {
             InitializeComponent();
 
-
-            LoadingServices();
+            LoadPageNext();
         }
 
-        public void LoadingServices()
+        public void LoadPageNext()
         {
-
+            //а не проще ли тут создать новый экземпляр класса и работать с ним? И нужно ли будет производить очистку памяти после lтакой "работы"?
             var Services = ConnectDB.DbObj.Service.ToList();
-            List<int> ServiceId = new List<int>();
             ServiceId = (from IdService in Services select IdService.ID).ToList(); //Получаем массив ID для перечисления элементов
-            var service = Services.FirstOrDefault(x => x.ID == ServiceId[countService]);
-            ServiceControlHelper.Id = service.ID;
-            ServiceControlHelper.NameService = service.Title;
-            ServiceControlHelper.Duration = service.Duration;
-            ServiceControlHelper.Digit = service.Digit;
-            ServiceControlHelper.Price = service.Value;
-            ServiceControlHelper.Discount = service.Discount;
-            ServiceControlHelper.MainPage = service.MainImagePath;   //а не проще ли тут создать новый экземпляр класса и работать с ним? И нужно ли будет производить очистку памяти после такой "работы"?
-            TxtNameService1.Text = ServiceControlHelper.NameService;
-            TxtPriceService1.Text = ServiceControlHelper.Price.ToString();
-            TxtDurationService1.Text = ServiceControlHelper.Duration.ToString() + " " + ServiceControlHelper.Digit;
+            for (int i = 0; i < 4; i++)
+            {
+                var service = Services.FirstOrDefault(x => x.ID == ServiceId[countService]);//Это получение информации о записи
+                ServiceControlHelper.Id = service.ID;
+                ServiceControlHelper.NameService = service.Title;
+                ServiceControlHelper.Duration = service.Duration;
+                ServiceControlHelper.Digit = service.Digit;
+                ServiceControlHelper.Price = service.Value;
+                ServiceControlHelper.Discount = (float)service.Discount;
+                ServiceControlHelper.MainPage = service.MainImagePath;
+                countService++;
+                //Возможно, на 101 интерации получим ошибку. Подозреваю, решение проблемы заключено в коде ниже
+                //if (i<3)
+                //{
+                //    countService++;
+                //}
+                switch (i)
+                {
+                    case 0:
+                        {
+                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1);
+                            break;
+                        }
+                    case 1:
+                        {
+                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2);
+                            break;
+                        }
+                    case 2:
+                        {
+                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3);
+                            break;
+                        }
+                    case 3:
+                        {
+                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4);
+                            break;
+                        }
+                }
+            }
+        }
+        //В чём-то тут проблема. ОТСЛЕДИТЬ
+        public void LoadPageBack()
+        {
+            //а не проще ли тут создать новый экземпляр класса и работать с ним? И нужно ли будет производить очистку памяти после lтакой "работы"?
+            //Можно ли убрать куда-то вот ЭТО формированрие объекта для рационального распределения ресурсов?
+            var Services = ConnectDB.DbObj.Service.ToList();
+            ServiceId = (from IdService in Services select IdService.ID).ToList(); //Получаем массив ID для перечисления элементов
+            for (int i = 3; i>=0; i--)
+            {
+                countService--;
+                var service = Services.FirstOrDefault(x => x.ID == ServiceId[countService]);//Это получение информации о записи
+                ServiceControlHelper.Id = service.ID;
+                ServiceControlHelper.NameService = service.Title;
+                ServiceControlHelper.Duration = service.Duration;
+                ServiceControlHelper.Digit = service.Digit;
+                ServiceControlHelper.Price = service.Value;
+                ServiceControlHelper.Discount = (float)service.Discount;
+                ServiceControlHelper.MainPage = service.MainImagePath;
+
+                switch (i)
+                {
+                    case 0:
+                        {
+                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1);
+                            break;
+                        }
+                    case 1:
+                        {
+                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2);
+                            break;
+                        }
+                    case 2:
+                        {
+                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3);
+                            break;
+                        }
+                    case 3:
+                        {
+                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4);
+                            break;
+                        }
+                }               
+            }
+            
+        }
+
+        //Неплохо было бы переработать и получить список элементов через VisualTreeHelper
+        public void LoadingServices(StackPanel Container, TextBlock NameService, TextBlock DuratationService, TextBlock PriceService, TextBlock DiscountService, TextBlock StartPriceService)
+        {
+            NameService.Text = ServiceControlHelper.NameService;
+            DuratationService.Text = ServiceControlHelper.Duration.ToString() + " " + ServiceControlHelper.Digit;
+            if (ServiceControlHelper.Discount == 0)
+            {
+                PriceService.Text = ServiceControlHelper.Price.ToString();
+            }
+            else
+            {
+                Container.Visibility = Visibility.Visible;
+                DiscountService.Text = Convert.ToString(ServiceControlHelper.Discount * 100);
+                StartPriceService.Text = ServiceControlHelper.Price.ToString();
+                PriceService.Text = Convert.ToString(ServiceControlHelper.Price - ServiceControlHelper.Price * ServiceControlHelper.Discount);
+            }
 
         }
-        
+
 
         private void BtnMoreInf_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPageBack();
+
+            if (countService <= 0)
+                BtnBack.IsEnabled = false;
+            else
+                BtnBack.IsEnabled = true;
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPageNext();
+
+            if (countService <= 0)
+                BtnBack.IsEnabled = false;
+            else
+                BtnBack.IsEnabled = true;
         }
     }
 }
