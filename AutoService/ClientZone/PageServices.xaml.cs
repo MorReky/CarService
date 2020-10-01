@@ -34,6 +34,7 @@ namespace AutoServiceProject.ClientZone
 
         public void LoadPageNext()
         {
+            //расковырять и перенести в отдельный класс
             //а не проще ли тут создать новый экземпляр класса и работать с ним? И нужно ли будет производить очистку памяти после lтакой "работы"?
             var Services = ConnectDB.DbObj.Service.ToList();
             ServiceId = (from IdService in Services select IdService.ID).ToList(); //Получаем массив ID для перечисления элементов
@@ -57,35 +58,36 @@ namespace AutoServiceProject.ClientZone
                 {
                     case 0:
                         {
-                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1);
+                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1, Image1);
                             break;
                         }
                     case 1:
                         {
-                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2);
+                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2, Image2);
                             break;
                         }
                     case 2:
                         {
-                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3);
+                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3, Image3);
                             break;
                         }
                     case 3:
                         {
-                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4);
+                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4, Image4);
                             break;
                         }
                 }
+
             }
         }
-        //В чём-то тут проблема. ОТСЛЕДИТЬ
+
         public void LoadPageBack()
         {
             //а не проще ли тут создать новый экземпляр класса и работать с ним? И нужно ли будет производить очистку памяти после lтакой "работы"?
             //Можно ли убрать куда-то вот ЭТО формированрие объекта для рационального распределения ресурсов?
             var Services = ConnectDB.DbObj.Service.ToList();
             ServiceId = (from IdService in Services select IdService.ID).ToList(); //Получаем массив ID для перечисления элементов
-            for (int i = 3; i>=0; i--)
+            for (int i = 3; i >= 0; i--)
             {
                 countService--;
                 var service = Services.FirstOrDefault(x => x.ID == ServiceId[countService]);//Это получение информации о записи
@@ -101,36 +103,47 @@ namespace AutoServiceProject.ClientZone
                 {
                     case 0:
                         {
-                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1);
+                            LoadingServices(StckpDiscount1, TxtNameService1, TxtDurationService1, TxtPriceService1, TxtDiscount1, TxtStartPriceBlock1, Image1);
                             break;
                         }
                     case 1:
                         {
-                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2);
+                            LoadingServices(StckpDiscount2, TxtNameService2, TxtDurationService2, TxtPriceService2, TxtDiscount2, TxtStartPriceBlock2, Image2);
                             break;
                         }
                     case 2:
                         {
-                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3);
+                            LoadingServices(StckpDiscount3, TxtNameService3, TxtDurationService3, TxtPriceService3, TxtDiscount3, TxtStartPriceBlock3, Image3);
                             break;
                         }
                     case 3:
                         {
-                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4);
+                            LoadingServices(StckpDiscount4, TxtNameService4, TxtDurationService4, TxtPriceService4, TxtDiscount4, TxtStartPriceBlock4, Image4);
                             break;
                         }
-                }               
+                }
             }
-            
+
         }
 
         //Неплохо было бы переработать и получить список элементов через VisualTreeHelper
-        public void LoadingServices(StackPanel Container, TextBlock NameService, TextBlock DuratationService, TextBlock PriceService, TextBlock DiscountService, TextBlock StartPriceService)
+        public void LoadingServices(StackPanel Container, TextBlock NameService, TextBlock DuratationService, TextBlock PriceService, TextBlock DiscountService, TextBlock StartPriceService, Image ImageMain)
         {
+            if (ServiceControlHelper.MainPage!=null)
+            {
+                string filename = "../Resorces/" + ServiceControlHelper.MainPage.Trim();
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(filename, UriKind.Relative);
+                image.EndInit();
+                ImageMain.Source = image;
+            }
             NameService.Text = ServiceControlHelper.NameService;
             DuratationService.Text = ServiceControlHelper.Duration.ToString() + " " + ServiceControlHelper.Digit;
             if (ServiceControlHelper.Discount == 0)
             {
+                Container.Visibility = Visibility.Hidden;
+                StartPriceService.Text = null;
                 PriceService.Text = ServiceControlHelper.Price.ToString();
             }
             else
@@ -142,7 +155,6 @@ namespace AutoServiceProject.ClientZone
             }
 
         }
-
 
         private void BtnMoreInf_Click(object sender, RoutedEventArgs e)
         {
@@ -157,6 +169,10 @@ namespace AutoServiceProject.ClientZone
                 BtnBack.IsEnabled = false;
             else
                 BtnBack.IsEnabled = true;
+            if (countService >= ServiceId.Count)
+                BtnNext.IsEnabled = false;
+            else
+                BtnNext.IsEnabled = true;
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
@@ -167,6 +183,10 @@ namespace AutoServiceProject.ClientZone
                 BtnBack.IsEnabled = false;
             else
                 BtnBack.IsEnabled = true;
+            if (countService >= ServiceId.Count)
+                BtnNext.IsEnabled = false;
+            else
+                BtnNext.IsEnabled = true;
         }
     }
 }

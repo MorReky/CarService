@@ -8,8 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Услуги">
 
-    <DockPanel Background="White">
-        
+    <DockPanel Background="White">        
         <StackPanel Orientation="Horizontal"
                     DockPanel.Dock="Left"
                     HorizontalAlignment="Left"
@@ -48,15 +47,17 @@
             <StackPanel Orientation="Horizontal"
                         Name="StckpOne"
                         HorizontalAlignment="Center"
-                        Margin="3"
-                        >
+                        Margin="3">
                 <Border BorderBrush="Gray"
                         BorderThickness="2">
                     <StackPanel Orientation="Horizontal"
                                 Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
-                            <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
+                            <Image Source="..\Resorces\Услуги автосервиса\diz.jpg"
+                                   Stretch="Uniform"
+                                   Name="Image1"
+                                   Width="145"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
                                     VerticalAlignment="Top"
@@ -98,14 +99,6 @@
                                            Margin="0,0,5,0"/>
                                 <TextBlock Text="%"/>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical" 
-                                        VerticalAlignment="Bottom" 
-                                        Margin="15,7,15,0">
-                                <Button Content="Подробнее" 
-                                        x:Name="btnMoreInf"
-                                        Click="BtnMoreInf_Click"                                        
-                                        VerticalAlignment="Bottom"/>
-                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -121,7 +114,10 @@
                                 Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Left">
-                            <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
+                            <Image Source="..\Resorces\Услуги автосервиса\diz.jpg"
+                                   Stretch="Uniform"
+                                   Name="Image2"
+                                   Width="145"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
                                     MinWidth="525">
@@ -160,13 +156,6 @@
                                            Margin="0,0,5,0"/>
                                 <TextBlock Text="%"/>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical" 
-                                        VerticalAlignment="Bottom" 
-                                        Margin="15,7,15,0">
-                                <Button Content="Подробнее" 
-                                        Click="BtnMoreInf_Click"
-                                        VerticalAlignment="Bottom"/>
-                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -182,7 +171,10 @@
                                 Background="#FFFFFFE1">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
-                            <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
+                            <Image Source="..\Resorces\Услуги автосервиса\diz.jpg"
+                                   Stretch="Uniform"
+                                   Name="Image3"
+                                   Width="145"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
                                     MinWidth="525">
@@ -221,13 +213,6 @@
                                            Margin="0,0,5,0"/>
                                 <TextBlock Text="%"/>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical" 
-                                        VerticalAlignment="Bottom" 
-                                        Margin="15,7,15,0">
-                                <Button Content="Подробнее" 
-                                        Click="BtnMoreInf_Click"
-                                        VerticalAlignment="Bottom"/>
-                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -244,7 +229,10 @@
                                 MinWidth="655">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left">
-                            <Image Source="..\Resorces\ServicesImage\diz.jpg"/>
+                            <Image Source="..\Resorces\Услуги автосервиса\diz.jpg"
+                                   Stretch="Uniform"
+                                   Name="Image4"
+                                   Width="145"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
                                     MinWidth="525">
@@ -282,13 +270,6 @@
                                            Name="TxtDiscount4"
                                            Margin="0,0,5,0"/>
                                 <TextBlock Text="%"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" 
-                                        VerticalAlignment="Bottom" 
-                                        Margin="15,7,15,0">
-                                <Button Content="Подробнее" 
-                                        Click="BtnMoreInf_Click"
-                                        VerticalAlignment="Bottom"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

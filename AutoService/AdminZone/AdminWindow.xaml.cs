@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoService.DataFilesApp;
+using AutoServiceProject.DataFilesApp;
+using AutoServiceProject.ProgramProcedures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,12 @@ namespace AutoService.AdminZone
         public AdminWindow()
         {
             InitializeComponent();
+
+            ConnectDB.DbObj = new AutoServiceEntities();
+
+            FrameApp.frameObj = FrmMain;
+            FrmMain.Navigate(new PageAdminMenu());
         }
     }
+ 
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\App.xaml
-3862913116
+575239250
 22100826591
-25-2073895301
+281923122250
 18632258728
-AdminZone\AdminWindow.xaml;ClientZone\PageServices.xaml;MainWindow.xaml;
+AdminZone\AdminWindow.xaml;AdminZone\PageAdminMenu.xaml;AdminZone\PageServicesAdm.xaml;ClientZone\PageServices.xaml;MainWindow.xaml;
 
 False
 
