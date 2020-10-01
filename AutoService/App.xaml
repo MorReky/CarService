@@ -20,7 +20,6 @@
             <Setter Property="FontSize" Value="15pt"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Height" Value=" 50"/>
-            <Setter Property="Width" Value="400"/>
             <Setter Property="Background" Value="#FFFF9C1A"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>

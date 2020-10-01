@@ -12,8 +12,7 @@
             <RowDefinition Height="351*"/>
         </Grid.RowDefinitions>
         <!--Разметка шапки проекта-->
-        <Grid Background="#FFFFFFE1"
-                >
+        <Grid Background="#FFFFFFE1">
             <StackPanel Background="#FFFFFFE1"
                   Orientation="Horizontal"
                   HorizontalAlignment="Left">
@@ -27,6 +26,7 @@
             FontWeight="Bold"
                 />
             </StackPanel>
+            
         </Grid>
         <!--Разметка основной части-->
         <Frame

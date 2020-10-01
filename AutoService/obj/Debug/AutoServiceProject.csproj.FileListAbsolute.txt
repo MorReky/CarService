@@ -51,8 +51,8 @@ C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoServiceProject.csproj.CopyComplete
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoService.exe
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoService.pdb
-C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoServiceProject.csprojAssemblyReference.cache
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageServicesAdm.g.cs
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageServicesAdm.baml
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageAdminMenu.g.cs
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageAdminMenu.baml
+C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoServiceProject.csprojAssemblyReference.cache

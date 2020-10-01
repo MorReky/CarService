@@ -30,7 +30,9 @@ namespace AutoService.AdminZone
 
             FrameApp.frameObj = FrmMain;
             FrmMain.Navigate(new PageAdminMenu());
-        }
+
+        }             
+
     }
  
 }
