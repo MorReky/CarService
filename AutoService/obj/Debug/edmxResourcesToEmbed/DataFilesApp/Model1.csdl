@@ -167,6 +167,7 @@
     <Property Name="MainImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ClientService" Relationship="AutoServiceModel.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
     <NavigationProperty Name="ServicePhoto" Relationship="AutoServiceModel.FK_ServicePhoto_Service1" FromRole="Service" ToRole="ServicePhoto" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ServicePhoto">
     <Key>

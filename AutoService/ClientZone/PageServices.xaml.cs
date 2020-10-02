@@ -98,6 +98,7 @@ namespace AutoServiceProject.ClientZone
                 ServiceControlHelper.Price = service.Value;
                 ServiceControlHelper.Discount = (float)service.Discount;
                 ServiceControlHelper.MainPage = service.MainImagePath;
+                ServiceControlHelper.Description = service.Description;
 
                 switch (i)
                 {

@@ -99,7 +99,7 @@ namespace AutoService.AdminZone
                 ServiceControlHelper.Price = service.Value;
                 ServiceControlHelper.Discount = (float)service.Discount;
                 ServiceControlHelper.MainPage = service.MainImagePath;
-
+                ServiceControlHelper.Description = service.Description;
                 switch (i)
                 {
                     case 0:
@@ -187,19 +187,30 @@ namespace AutoService.AdminZone
             FrameApp.frameObj.GoBack();
         }
 
-        private void BtnNext_Click_1(object sender, RoutedEventArgs e)
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void BtnDelete1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnEditInf1_Click(object sender, RoutedEventArgs e)
         {
+            FrameApp.frameObj.Navigate(new PageEditInformationService(TxtNameService1.Text));
+        }
 
+        private void BtnEditInf2_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frameObj.Navigate(new PageEditInformationService(TxtNameService2.Text));
+        }
+
+        private void BtnEditInf3_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frameObj.Navigate(new PageEditInformationService(TxtNameService3.Text));
+        }
+
+        private void BtnEditInf4_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frameObj.Navigate(new PageEditInformationService(TxtNameService4.Text));
         }
     }
 }

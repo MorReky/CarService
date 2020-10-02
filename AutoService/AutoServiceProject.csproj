@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminZone\PageEditInformationService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminZone\PageServicesAdm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +93,9 @@
     </Compile>
     <Compile Include="AdminZone\PageAdminMenu.xaml.cs">
       <DependentUpon>PageAdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminZone\PageEditInformationService.xaml.cs">
+      <DependentUpon>PageEditInformationService.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminZone\PageServicesAdm.xaml.cs">
       <DependentUpon>PageServicesAdm.xaml</DependentUpon>

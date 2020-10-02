@@ -102,6 +102,7 @@
           <Property Name="Value" Type="int" Nullable="false" />
           <Property Name="Discount" Type="float" />
           <Property Name="MainImagePath" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
@@ -532,6 +533,7 @@
           <Property Name="MainImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientService" Relationship="AutoServiceModel.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
           <NavigationProperty Name="ServicePhoto" Relationship="AutoServiceModel.FK_ServicePhoto_Service1" FromRole="Service" ToRole="ServicePhoto" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
@@ -772,6 +774,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="AutoServiceModel.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="Value" ColumnName="Value" />

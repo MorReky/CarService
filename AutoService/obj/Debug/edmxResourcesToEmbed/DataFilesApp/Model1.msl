@@ -90,6 +90,7 @@
     <EntitySetMapping Name="Service">
       <EntityTypeMapping TypeName="AutoServiceModel.Service">
         <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
           <ScalarProperty Name="Discount" ColumnName="Discount" />
           <ScalarProperty Name="Value" ColumnName="Value" />

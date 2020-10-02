@@ -23,5 +23,12 @@
             <Setter Property="Background" Value="#FFFF9C1A"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value=" 25"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="FontSize" Value="12pt"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
     </Application.Resources>
 </Application>

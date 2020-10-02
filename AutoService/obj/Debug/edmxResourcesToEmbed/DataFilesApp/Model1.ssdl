@@ -97,6 +97,7 @@
     <Property Name="Value" Type="int" Nullable="false" />
     <Property Name="Discount" Type="float" />
     <Property Name="MainImagePath" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="ServicePhoto">
     <Key>

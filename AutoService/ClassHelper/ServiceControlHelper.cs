@@ -24,5 +24,7 @@ namespace AutoService.DataFilesApp
         public static float Discount { get; set; }
 
         public static string MainPage { get; set; }
+
+        public static string Description { get; set; }
     }
 }

@@ -122,7 +122,7 @@
                                 <Button Content="Удалить"
                                         Margin="5,0"
                                         Name="BtnDelete1"
-                                        Click="BtnDelete1_Click"
+                                        Click="BtnDelete_Click"
                                         Background="White"
                                         />
                             </StackPanel>
@@ -188,12 +188,12 @@
                                 <Button Content="Редактировать"
                                         Margin="5,0"
                                         Background="White"
-                                        Click="BtnEditInf1_Click"
+                                        Click="BtnEditInf2_Click"
                                         Name="BtnEditInf2"/>
                                 <Button Content="Удалить"
                                         Margin="5,0"
                                         Name="BtnDelete2"
-                                        Click="BtnDelete1_Click"
+                                        Click="BtnDelete_Click"
                                         Background="White"
                                         />
                             </StackPanel>
@@ -259,12 +259,12 @@
                                 <Button Content="Редактировать"
                                         Margin="5,0"
                                         Background="White"
-                                        Click="BtnEditInf1_Click"
+                                        Click="BtnEditInf3_Click"
                                         Name="BtnEditInf3"/>
                                 <Button Content="Удалить"
                                         Margin="5,0"
                                         Name="BtnDelete3"
-                                        Click="BtnDelete1_Click"
+                                        Click="BtnDelete_Click"
                                         Background="White"
                                         />
                             </StackPanel>
@@ -331,12 +331,12 @@
                                 <Button Content="Редактировать"
                                         Margin="5,0"
                                         Background="White"
-                                        Click="BtnEditInf1_Click"
+                                        Click="BtnEditInf4_Click"
                                         Name="BtnEditInf4"/>
                                 <Button Content="Удалить"
                                         Margin="5,0"
                                         Name="BtnDelete4"
-                                        Click="BtnDelete1_Click"
+                                        Click="BtnDelete_Click"
                                         Background="White"
                                         />
                             </StackPanel>

@@ -56,3 +56,5 @@ C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageAdminMenu.g.cs
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageAdminMenu.baml
 C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AutoServiceProject.csprojAssemblyReference.cache
+C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageEditInformationService.g.cs
+C:\Users\адмон\Desktop\Git\CarService\CarService.git\AutoService\obj\Debug\AdminZone\PageEditInformationService.baml
